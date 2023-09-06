@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - user=sidnei
-        - uid=1000
+        - user=jenkins
+        - uid=132
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
