@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  # image project
+  minimal-project-app:
+    container_name: minimal-project-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - user=sidnei
+        - uid=1000
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - minimal-project
+
+  # nginx
+  minimal-project-nginx:
+    container_name: minimal-project-nginx
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - minimal-project
+
+networks:
+  minimal-project:

@@ -1,0 +1,9 @@
+{
+    "name": "seu-nome/meu-projeto-php",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "SeuNamespace\\": "src/"
+        }
+    }
+}
