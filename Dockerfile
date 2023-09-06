@@ -29,6 +29,9 @@ EXPOSE 9000
 # Definir usuário do sistema
 USER $user
 
+# Entry point para executar o PHP-FPM
+CMD ["php-fpm"]
+
 # Explicações
 
 # * **FROM php:8.2-fpm as php:** Define a imagem base para a construção. No caso, a imagem PHP 8.2-fpm, que fornece um servidor web PHP-FPM pré-configurado.

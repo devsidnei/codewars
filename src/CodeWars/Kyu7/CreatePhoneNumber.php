@@ -2,8 +2,6 @@
 
 namespace CodeWars\Kyu7;
 
-use CodeWars\Kyu;
-
 /*
 DESCRIPTION:
 Write a function that accepts an array of 10 integers (between 0 and 9), 
@@ -16,14 +14,14 @@ The returned format must be correct in order to complete this challenge.
 Don't forget the space after the closing parentheses!
 */
 
-class CreatePhoneNumber implements Kyu
+class CreatePhoneNumber
 {
-    public function run($numbersArray)
+    public static function run(array $numbers = [])
     {
-        $format = function ($arr, $offSet, $lenght) {
-            return join(array_slice($arr, $offSet, $lenght));
-        };
-
-        return join(['(', $format($numbersArray, 0, 3), ') ', $format($numbersArray, 3, 3), "-", $format($numbersArray, 6, 4)]);
+        // Formata o número de telefone
+        return sprintf(
+            "(%d%d%d) %d%d%d-%d%d%d%d",
+            ...$numbers
+        );
     }
 }
