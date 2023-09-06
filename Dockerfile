@@ -21,7 +21,7 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 # Configurar o Xdebug
-COPY ./.docker/php.ini /usr/local/etc/php/conf.d/custom.ini
+COPY ./.docker/php/php.ini /usr/local/etc/php/conf.d/custom.ini
 
 # Expor portas
 EXPOSE 9000
